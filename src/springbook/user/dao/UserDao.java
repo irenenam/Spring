@@ -12,9 +12,7 @@ import springbook.user.domain.User;
 public class UserDao {
 	
 	public void add(User user) throws ClassNotFoundException, SQLException {
-		Class.forName("org.postgresql.Driver");
-		Connection c = DriverManager.getConnection(
-					"jdbc:postgresql://localhost:5432/postgres", "postgres", "postgres");
+		Connection c = getConnection();
 		
 		PreparedStatement ps = c.prepareStatement(
 					"insert into users(id, name, password) values (?,?,?)");
@@ -29,10 +27,7 @@ public class UserDao {
 	}
 	
 	public User get(String id) throws ClassNotFoundException, SQLException {
-		Class.forName("org.postgresql.Driver");
-		Connection c = DriverManager.getConnection(
-				"jdbc:postgresql://localhost/postgres", "postgres", "postgres");
-		
+		Connection c = getConnection();
 		PreparedStatement ps = c.prepareStatement(
 					"select * from users where id = ?");
 		ps.setString(1, id);
@@ -52,4 +47,11 @@ public class UserDao {
 		
 	}
 	
+	private Connection getConnection() throws ClassNotFoundException, SQLException {
+		Class.forName("org.postgresql.Driver");
+		Connection c = DriverManager.getConnection(
+				"jdbc:postgresql://localhost/postgres", "postgres", "postgres");
+		
+		return c;
+	}
 }
