@@ -2,6 +2,9 @@ package springbook.user;
 
 import java.sql.SQLException;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
 import springbook.user.dao.ConnectionMaker;
 import springbook.user.dao.DConnectionMaker;
 import springbook.user.dao.DaoFactory;
@@ -12,11 +15,30 @@ import springbook.user.domain.User;
 public class UserResouce {
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-	
+		
 		//ConnectionMaker connectionMaker = new DConnectionMaker();
 		//UserDao dao = new UserDao(connectionMaker);
 		
-		UserDao dao = new DaoFactory().userDao();
+		ApplicationContext context = new AnnotationConfigApplicationContext(DaoFactory.class)	;
+		//UserDao dao =  new DaoFactory().userDao();
+		UserDao dao = context.getBean("userDao", UserDao.class);
+		
+		//Singleton registry
+		UserDao dao3 = context.getBean("userDao", UserDao.class);
+		UserDao dao4 = context.getBean("userDao", UserDao.class);
+		
+		UserDao dao1 =  new DaoFactory().userDao();
+		UserDao dao2 =  new DaoFactory().userDao();
+		
+		// objects are identical
+		System.out.println(dao1);
+		System.out.println(dao2);
+		System.out.println(dao1 == dao2);
+		
+		// objects are equivalent
+		System.out.println(dao3);
+		System.out.println(dao4);
+		System.out.println(dao3 == dao4);
 		
 		User user = new User();  
 		user.setId("fabio");
