@@ -6,7 +6,7 @@ import java.sql.SQLException;
 public class DUserDao extends UserDao {
 
 	public DUserDao(ConnectionMaker connectionMaker) {
-		super(connectionMaker);
+		// super(connectionMaker);
 		// TODO Auto-generated constructor stub
 	}
 	/*
