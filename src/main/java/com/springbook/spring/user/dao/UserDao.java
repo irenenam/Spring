@@ -1,4 +1,4 @@
-package springbook.user.dao;
+package com.springbook.spring.user.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 import javax.sql.DataSource;
 
-import springbook.user.domain.User;
+import com.springbook.spring.user.domain.User;
 
 
 public class UserDao {

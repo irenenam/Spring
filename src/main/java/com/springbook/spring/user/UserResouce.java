@@ -1,16 +1,16 @@
-package springbook.user;
+package com.springbook.spring.user;
 
 import java.sql.SQLException;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import springbook.user.dao.ConnectionMaker;
-import springbook.user.dao.DConnectionMaker;
-import springbook.user.dao.DaoFactory;
-import springbook.user.dao.NUserDao;
-import springbook.user.dao.UserDao;
-import springbook.user.domain.User;
+import com.springbook.spring.user.dao.ConnectionMaker;
+import com.springbook.spring.user.dao.DConnectionMaker;
+import com.springbook.spring.user.dao.DaoFactory;
+import com.springbook.spring.user.dao.NUserDao;
+import com.springbook.spring.user.dao.UserDao;
+import com.springbook.spring.user.domain.User;
 
 public class UserResouce {
 	
