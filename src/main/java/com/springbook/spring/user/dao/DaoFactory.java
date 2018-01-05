@@ -20,7 +20,7 @@ public class DaoFactory {
 	@Bean  
 	public UserDao userDao() {
 		UserDao userDao = new UserDao();
-		userDao.setDataSouce(dataSource());
+		userDao.setDataSource(dataSource());
 		return userDao;
 	}
 	

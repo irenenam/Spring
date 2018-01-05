@@ -13,7 +13,7 @@ import com.springbook.spring.user.domain.User;
 public class UserDao {
 	private DataSource dataSource;
 	
-	public void setDataSouce(DataSource dataSource) {
+	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
 	 
